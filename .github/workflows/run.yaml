@@ -20,7 +20,7 @@ jobs:
           pip3 install awscli
       
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials@master
         with:
           role-to-assume: arn:aws:iam::257915852743:role/gha-test
           aws-region: ap-south-1
