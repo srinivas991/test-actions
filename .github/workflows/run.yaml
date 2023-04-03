@@ -1,0 +1,29 @@
+name: AWS Command on Push
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  aws-command:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      
+      - name: Install AWS CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install awscli
+      
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: arn:aws:iam::257915852743:role/gha-test
+          aws-region: ap-south-1
+      
+      - name: Run AWS Command
+        run: |
+          aws sts get-caller-identity
