@@ -26,8 +26,8 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@master
         with:
-          role-to-assume: arn:aws:iam::257915852743:role/gha-test
-          aws-region: ap-south-1
+          role-to-assume: arn:aws:iam::8450209857:role/preevy-github-action
+          aws-region: us-east-1
           role-session-name: my-session-name
       
       - name: Run AWS Command
